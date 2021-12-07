@@ -45,6 +45,6 @@ public class CheckWinState : MonoBehaviour {
 
 
     private void GameWon() {
-      Debug.Log("Congrats for winning the Game.");
+      UIEvents.WinGame();
     }
 }

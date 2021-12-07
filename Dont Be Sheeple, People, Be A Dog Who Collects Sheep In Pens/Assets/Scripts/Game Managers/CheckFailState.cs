@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheckFailState : MonoBehaviour {
   private int sheepDied;
+  [SerializeField] private int maxSheepDied;
 
 
     void Start() {
@@ -13,7 +14,7 @@ public class CheckFailState : MonoBehaviour {
 
 
     void Update() {
-      if (sheepDied >= 3) {
+      if (sheepDied >= maxSheepDied) {
         GameFailed();
       }
     }
