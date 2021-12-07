@@ -10,7 +10,8 @@ public class CheckWinState : MonoBehaviour {
     void Start() {
       sheepSafe = 0;
       AddSheepToList();
-      SheepEvents.SheepCollected += UpdateSheepSafeCount;
+      SheepEvents.SheepCollected += IncreaseSheepSafeCount;
+      SheepEvents.SheepEscaped += DecreaseSheepSafeCount;
     }
 
 
@@ -18,12 +19,20 @@ public class CheckWinState : MonoBehaviour {
       if (sheepSafe >= _sheepInLevel.Count) {
         GameWon();
       }
+      Debug.Log(_sheepInLevel.Count);
     }
 
 
-    private void UpdateSheepSafeCount(GameObject obj) {
+    private void IncreaseSheepSafeCount(GameObject obj) {
       if (obj.tag == "Sheep") {
         sheepSafe += 1;
+      }
+    }
+
+
+    private void DecreaseSheepSafeCount(GameObject obj) {
+      if (obj.tag == "Sheep") {
+        sheepSafe -= 1;
       }
     }
 

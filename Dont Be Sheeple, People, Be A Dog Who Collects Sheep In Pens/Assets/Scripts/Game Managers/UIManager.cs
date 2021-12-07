@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour {
     void Start() {
       sheep = 0;
       SheepEvents.SheepCollected += IncreaseSheepCount;
+      SheepEvents.SheepEscaped += DecreaseSheepCount;
       UIEvents.TimerUpdated += UpdateTimerCount;
     }
 
@@ -36,6 +37,13 @@ public class UIManager : MonoBehaviour {
     private void IncreaseSheepCount(GameObject obj) {
       if (obj.tag == "Sheep") {
         sheep += 1;
+      }
+    }
+
+
+    private void DecreaseSheepCount(GameObject obj) {
+      if (obj.tag == "Sheep") {
+        sheep -= 1;
       }
     }
 }
