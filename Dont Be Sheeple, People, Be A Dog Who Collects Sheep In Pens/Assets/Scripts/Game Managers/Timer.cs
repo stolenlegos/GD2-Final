@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour {
   private int intTimer;
 
 
-    void Start () {
+    void Awake() {
       intTimer = Mathf.RoundToInt(floatTimer);
     }
 

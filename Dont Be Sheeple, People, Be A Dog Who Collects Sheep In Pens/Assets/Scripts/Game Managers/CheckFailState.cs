@@ -9,16 +9,14 @@ public class CheckFailState : MonoBehaviour {
 
 
     void Awake() {
+      sheepDied = 0;
+
       SheepEvents.SetGoal += SetGoal;
+      SheepEvents.SheepDied += UpdateSheepDied;
+
       foreach (GameObject sheep in GameObject.FindGameObjectsWithTag("Sheep")) {
         _sheepInLevel.Add(sheep);
       }
-    }
-
-
-    void Start() {
-      sheepDied = 0;
-      SheepEvents.SheepDied += UpdateSheepDied;
     }
 
 
@@ -52,6 +50,7 @@ public class CheckFailState : MonoBehaviour {
 
 
     void OnDestroy() {
+      SheepEvents.SetGoal -= SetGoal;
       SheepEvents.SheepDied -= UpdateSheepDied;
     }
 }

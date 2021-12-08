@@ -7,12 +7,15 @@ public class CheckWinState : MonoBehaviour {
   private int sheepSafe;
 
 
-    void Start() {
+    void Awake() {
       sheepSafe = 0;
-
+      
       SheepEvents.SheepCollected += IncreaseSheepSafeCount;
       SheepEvents.SheepEscaped += DecreaseSheepSafeCount;
-      
+    }
+
+
+    void Start() {
       SheepEvents.GoalSet(sheepGoal);
     }
 

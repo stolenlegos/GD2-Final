@@ -36,6 +36,7 @@ public class SheepEvents {
   public static void GoalSet(int num) {
     if(SetGoal != null) {
       SetGoal(num);
+      Debug.Log("Goal was Sent");
     }
   }
 }

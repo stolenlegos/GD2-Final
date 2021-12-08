@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
   private int sheep;
+  private int sheepGoal;
   [SerializeField] private Text sheepCounter;
   [SerializeField] private Text timer;
   [SerializeField] private Text loseText;
@@ -14,19 +15,13 @@ public class UIManager : MonoBehaviour {
   [SerializeField] private GameObject mainMenu;
 
 
-    void Start() {
+    void Awake() {
       Time.timeScale = 0;
       sheep = 0;
-      UpdateSheepCount();
-
-      winUI.SetActive(false);
-      loseUI.SetActive(false);
-      mainMenu.SetActive(true);
-      timer.gameObject.SetActive(false);
-      sheepCounter.gameObject.SetActive(false);
 
       SheepEvents.SheepCollected += IncreaseSheepCount;
       SheepEvents.SheepEscaped += DecreaseSheepCount;
+      SheepEvents.SetGoal += GetGoal;
       UIEvents.TimerUpdated += UpdateTimerCount;
       UIEvents.GameWon += Win;
       UIEvents.GameLost += Lose;
@@ -35,8 +30,19 @@ public class UIManager : MonoBehaviour {
     }
 
 
+    void Start() {
+      UpdateSheepCount();
+
+      winUI.SetActive(false);
+      loseUI.SetActive(false);
+      mainMenu.SetActive(true);
+      timer.gameObject.SetActive(false);
+      sheepCounter.gameObject.SetActive(false);
+    }
+
+
     private void UpdateSheepCount() {
-      sheepCounter.text = "Sheep Collected: " + sheep.ToString();
+      sheepCounter.text = "Sheep Collected: " + sheep.ToString() + "/" + sheepGoal.ToString();
     }
 
 
@@ -88,9 +94,17 @@ public class UIManager : MonoBehaviour {
     }
 
 
+    private void GetGoal(int num) {
+      sheepGoal = num;
+      Debug.Log("Goal was Recieved");
+      UpdateSheepCount();
+    }
+
+
     void OnDestroy() {
       SheepEvents.SheepCollected -= IncreaseSheepCount;
       SheepEvents.SheepEscaped -= DecreaseSheepCount;
+      SheepEvents.SetGoal -= GetGoal;
       UIEvents.TimerUpdated -= UpdateTimerCount;
       UIEvents.GameWon -= Win;
       UIEvents.GameLost -= Lose;
