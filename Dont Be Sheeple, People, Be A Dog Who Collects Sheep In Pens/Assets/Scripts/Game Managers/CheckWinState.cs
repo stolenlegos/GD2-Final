@@ -47,4 +47,10 @@ public class CheckWinState : MonoBehaviour {
     private void GameWon() {
       UIEvents.WinGame();
     }
+
+
+    void OnDestroy() {
+      SheepEvents.SheepCollected -= IncreaseSheepSafeCount;
+      SheepEvents.SheepEscaped -= DecreaseSheepSafeCount;
+    }
 }
