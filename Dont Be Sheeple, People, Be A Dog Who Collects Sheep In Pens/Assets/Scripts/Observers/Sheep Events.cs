@@ -8,6 +8,9 @@ public class SheepEvents {
   public static event SheepAction SheepDied;
   public static event SheepAction SheepEscaped;
 
+  public delegate void SheepGoal(int num);
+  public static event SheepGoal SetGoal;
+
 
   public static void CollectSheep(GameObject obj) {
     if (SheepCollected != null) {
@@ -26,6 +29,13 @@ public class SheepEvents {
   public static void KillSheep(GameObject obj) {
     if (SheepDied != null) {
       SheepDied(obj);
+    }
+  }
+
+
+  public static void GoalSet(int num) {
+    if(SetGoal != null) {
+      SetGoal(num);
     }
   }
 }

@@ -37,7 +37,6 @@ public class UIManager : MonoBehaviour {
 
     private void UpdateSheepCount() {
       sheepCounter.text = "Sheep Collected: " + sheep.ToString();
-      Debug.Log(sheep);
     }
 
 
@@ -50,8 +49,7 @@ public class UIManager : MonoBehaviour {
       if (obj.tag == "Sheep") {
         sheep += 1;
       }
-
-        UpdateSheepCount();
+      UpdateSheepCount();
     }
 
 
@@ -59,6 +57,7 @@ public class UIManager : MonoBehaviour {
       if (obj.tag == "Sheep") {
         sheep -= 1;
       }
+      UpdateSheepCount();
     }
 
 
