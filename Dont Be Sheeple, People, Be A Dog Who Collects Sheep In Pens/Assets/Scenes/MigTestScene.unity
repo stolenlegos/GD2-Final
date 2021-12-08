@@ -1709,7 +1709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a499a7efe87244b11b83bdefedfbcec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSheepDied: 1
 --- !u!1001 &1618423930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2163,22 +2162,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 449256940}
-    - target: {fileID: 2142931669449252129, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 585.2113
-      objectReference: {fileID: 0}
-    - target: {fileID: 2142931669449252129, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 239.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2142931669449252129, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.0013
-      objectReference: {fileID: 0}
-    - target: {fileID: 2142931669449252129, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 59.227
-      objectReference: {fileID: 0}
     - target: {fileID: 2142931669544940255, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
