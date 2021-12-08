@@ -48,7 +48,7 @@ public class WanderState : State
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
             }
 
-            navMeshAgent.destination = this.transform.position;
+            navMeshAgent.destination = transform.position;
             return this;
         }
     }
