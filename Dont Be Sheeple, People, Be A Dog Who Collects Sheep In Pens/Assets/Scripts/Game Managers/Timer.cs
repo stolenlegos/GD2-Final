@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Timer : MonoBehaviour {
-  private float floatTimer;
+  [SerializeField] private float floatTimer;
   private int intTimer;
 
 
     void Start () {
       floatTimer = 120f;
-      intTimer = 120;
+      intTimer = Mathf.RoundToInt(floatTimer);
     }
 
 

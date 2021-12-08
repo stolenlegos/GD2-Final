@@ -27,7 +27,7 @@ public class CheckFailState : MonoBehaviour {
 
 
     private void GameFailed() {
-      Debug.Log("Sorry You failed the Game.");
+      UIEvents.LoseGame();
     }
 
 

@@ -10,6 +10,9 @@ public class UIEvents {
   public static event WinLose GameWon;
   public static event WinLose GameLost;
 
+  public delegate void GameStart();
+  public static event GameStart GameStarted;
+
 
   public static void UpdateTimer (string text) {
     if (TimerUpdated != null) {
@@ -28,6 +31,13 @@ public class UIEvents {
   public static void LoseGame() {
     if (GameLost != null) {
       GameLost();
+    }
+  }
+
+
+  public static void StartGame() {
+    if (GameStarted != null) {
+      GameStarted();
     }
   }
 }

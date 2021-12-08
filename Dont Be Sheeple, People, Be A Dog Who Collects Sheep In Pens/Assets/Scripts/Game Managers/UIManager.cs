@@ -10,17 +10,24 @@ public class UIManager : MonoBehaviour {
   [SerializeField] private Text timer;
   [SerializeField] private GameObject winUI;
   [SerializeField] private GameObject loseUI;
+  [SerializeField] private GameObject mainMenu;
 
 
     void Start() {
+      Time.timeScale = 0;
       sheep = 0;
+      
       winUI.SetActive(false);
       loseUI.SetActive(false);
+      timer.gameObject.SetActive(false);
+      sheepCounter.gameObject.SetActive(false);
+
       SheepEvents.SheepCollected += IncreaseSheepCount;
       SheepEvents.SheepEscaped += DecreaseSheepCount;
       UIEvents.TimerUpdated += UpdateTimerCount;
       UIEvents.GameWon += Win;
       UIEvents.GameLost += Lose;
+      UIEvents.GameStarted += GameStart;
     }
 
 
@@ -58,8 +65,17 @@ public class UIManager : MonoBehaviour {
       winUI.SetActive(true);
     }
 
+
     private void Lose() {
       Time.timeScale = 0;
       loseUI.SetActive(true);
+    }
+
+
+    private void GameStart() {
+      Time.timeScale = 1;
+      mainMenu.SetActive(false);
+      timer.gameObject.SetActive(true);
+      sheepCounter.gameObject.SetActive(true);
     }
 }
