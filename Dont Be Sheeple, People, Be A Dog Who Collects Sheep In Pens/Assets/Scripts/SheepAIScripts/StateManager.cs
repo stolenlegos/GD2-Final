@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
+    [SerializeField]
     public State currentState;
 
     // Update is called once per frame
