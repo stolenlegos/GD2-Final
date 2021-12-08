@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sheepCounter: {fileID: 1280036938}
   timer: {fileID: 614940426}
+  loseText: {fileID: 518886412}
   winUI: {fileID: 2103861347}
   loseUI: {fileID: 1341848598}
   mainMenu: {fileID: 1119691911}
@@ -387,6 +388,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0624f08bb999c8d46a4cd1a8f5058236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &518886412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2142931669449252158, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
+  m_PrefabInstance: {fileID: 1596459712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &533002266
@@ -1116,6 +1128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1156041151}
+  - component: {fileID: 1156041152}
   m_Layer: 0
   m_Name: Win State Check
   m_TagString: Untagged
@@ -1137,6 +1150,19 @@ Transform:
   m_Father: {fileID: 533002267}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1156041152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156041150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9907f7d081141baad48cee06639376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheepGoal: 2
 --- !u!1 &1209483837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f50c7b42d224ccbb00f783cadb856d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatTimer: 120
+  floatTimer: 10
 --- !u!1001 &1529487189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1486,7 +1512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a499a7efe87244b11b83bdefedfbcec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSheepDied: 3
 --- !u!1001 &1596459712
 PrefabInstance:
   m_ObjectHideFlags: 0

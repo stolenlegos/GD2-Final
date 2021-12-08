@@ -6,38 +6,43 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
   private int sheep;
+  private int sheepGoal;
   [SerializeField] private Text sheepCounter;
   [SerializeField] private Text timer;
+  [SerializeField] private Text loseText;
   [SerializeField] private GameObject winUI;
   [SerializeField] private GameObject loseUI;
   [SerializeField] private GameObject mainMenu;
 
 
-    void Start() {
+    void Awake() {
       Time.timeScale = 0;
       sheep = 0;
 
-      winUI.SetActive(false);
-      loseUI.SetActive(false);
-      timer.gameObject.SetActive(false);
-      sheepCounter.gameObject.SetActive(false);
-
       SheepEvents.SheepCollected += IncreaseSheepCount;
       SheepEvents.SheepEscaped += DecreaseSheepCount;
+      SheepEvents.SetGoal += GetGoal;
       UIEvents.TimerUpdated += UpdateTimerCount;
       UIEvents.GameWon += Win;
       UIEvents.GameLost += Lose;
       UIEvents.GameStarted += GameStart;
+      UIEvents.TimeLost += TimedOut;
     }
 
 
-    void Update() {
-        UpdateSheepCount();
+    void Start() {
+      UpdateSheepCount();
+
+      winUI.SetActive(false);
+      loseUI.SetActive(false);
+      mainMenu.SetActive(true);
+      timer.gameObject.SetActive(false);
+      sheepCounter.gameObject.SetActive(false);
     }
+
 
     private void UpdateSheepCount() {
-      sheepCounter.text = "Sheep Collected: " + sheep.ToString();
-      Debug.Log(sheep);
+      sheepCounter.text = "Sheep Collected: " + sheep.ToString() + "/" + sheepGoal.ToString();
     }
 
 
@@ -50,6 +55,7 @@ public class UIManager : MonoBehaviour {
       if (obj.tag == "Sheep") {
         sheep += 1;
       }
+      UpdateSheepCount();
     }
 
 
@@ -57,6 +63,7 @@ public class UIManager : MonoBehaviour {
       if (obj.tag == "Sheep") {
         sheep -= 1;
       }
+      UpdateSheepCount();
     }
 
 
@@ -80,12 +87,28 @@ public class UIManager : MonoBehaviour {
     }
 
 
+    private void TimedOut() {
+      Time.timeScale = 0;
+      loseUI.SetActive(true);
+      loseText.text = "Unfortunately the sheep didn't get corralled in time and the coyotes feasted tonight.";
+    }
+
+
+    private void GetGoal(int num) {
+      sheepGoal = num;
+      Debug.Log("Goal was Recieved");
+      UpdateSheepCount();
+    }
+
+
     void OnDestroy() {
       SheepEvents.SheepCollected -= IncreaseSheepCount;
       SheepEvents.SheepEscaped -= DecreaseSheepCount;
+      SheepEvents.SetGoal -= GetGoal;
       UIEvents.TimerUpdated -= UpdateTimerCount;
       UIEvents.GameWon -= Win;
       UIEvents.GameLost -= Lose;
       UIEvents.GameStarted -= GameStart;
+      UIEvents.TimeLost -= TimedOut;
     }
 }

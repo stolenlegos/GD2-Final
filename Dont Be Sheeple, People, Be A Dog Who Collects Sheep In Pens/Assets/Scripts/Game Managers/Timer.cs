@@ -7,8 +7,7 @@ public class Timer : MonoBehaviour {
   private int intTimer;
 
 
-    void Start () {
-      floatTimer = 120f;
+    void Awake() {
       intTimer = Mathf.RoundToInt(floatTimer);
     }
 
@@ -18,6 +17,10 @@ public class Timer : MonoBehaviour {
       intTimer = Mathf.RoundToInt(floatTimer);
 
       UIEvents.UpdateTimer(intTimer.ToString());
+
+      if (floatTimer <= 0) {
+        UIEvents.LoseTime();
+      }
     }
 
 

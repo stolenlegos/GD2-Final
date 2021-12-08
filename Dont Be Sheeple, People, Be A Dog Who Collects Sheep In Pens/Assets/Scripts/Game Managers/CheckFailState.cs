@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class CheckFailState : MonoBehaviour {
   private int sheepDied;
-  [SerializeField] private int maxSheepDied;
+  private int maxSheepDied;
+  private List<GameObject> _sheepInLevel = new List<GameObject>();
 
 
-    void Start() {
+    void Awake() {
       sheepDied = 0;
+
+      SheepEvents.SetGoal += SetGoal;
       SheepEvents.SheepDied += UpdateSheepDied;
+
+      foreach (GameObject sheep in GameObject.FindGameObjectsWithTag("Sheep")) {
+        _sheepInLevel.Add(sheep);
+      }
     }
 
 
     void Update() {
-      if (sheepDied >= maxSheepDied) {
+      if (sheepDied > maxSheepDied) {
         GameFailed();
       }
     }
@@ -36,7 +43,14 @@ public class CheckFailState : MonoBehaviour {
     }
 
 
+    private void SetGoal(int num) {
+      maxSheepDied = _sheepInLevel.Count - num;
+      Debug.Log("Max Sheep Can Die: " + maxSheepDied.ToString());
+    }
+
+
     void OnDestroy() {
+      SheepEvents.SetGoal -= SetGoal;
       SheepEvents.SheepDied -= UpdateSheepDied;
     }
 }

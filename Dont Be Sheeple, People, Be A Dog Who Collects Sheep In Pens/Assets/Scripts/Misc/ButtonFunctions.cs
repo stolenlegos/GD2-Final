@@ -9,7 +9,7 @@ public class ButtonFunctions : MonoBehaviour {
   //delete list when sheep can actually die
   private List<GameObject> _sheep = new List<GameObject>();
 
-  void Start() {
+  void Awake() {
     scene = SceneManager.GetActiveScene();
     //delete loop when sheep can actually die
     foreach(GameObject sheep in GameObject.FindGameObjectsWithTag("Sheep")) {

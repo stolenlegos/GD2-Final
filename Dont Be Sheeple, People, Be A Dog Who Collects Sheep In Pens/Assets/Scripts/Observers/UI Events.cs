@@ -9,6 +9,7 @@ public class UIEvents {
   public delegate void WinLose();
   public static event WinLose GameWon;
   public static event WinLose GameLost;
+  public static event WinLose TimeLost;
 
   public delegate void GameStart();
   public static event GameStart GameStarted;
@@ -38,6 +39,13 @@ public class UIEvents {
   public static void StartGame() {
     if (GameStarted != null) {
       GameStarted();
+    }
+  }
+
+
+  public static void LoseTime() {
+    if (TimeLost != null) {
+      TimeLost();
     }
   }
 }
