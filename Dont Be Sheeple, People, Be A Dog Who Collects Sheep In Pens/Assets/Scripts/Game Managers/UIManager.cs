@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour {
   private int sheep;
   [SerializeField] private Text sheepCounter;
   [SerializeField] private Text timer;
+  [SerializeField] private Text loseText;
   [SerializeField] private GameObject winUI;
   [SerializeField] private GameObject loseUI;
   [SerializeField] private GameObject mainMenu;
@@ -16,9 +17,11 @@ public class UIManager : MonoBehaviour {
     void Start() {
       Time.timeScale = 0;
       sheep = 0;
+      UpdateSheepCount();
 
       winUI.SetActive(false);
       loseUI.SetActive(false);
+      mainMenu.SetActive(true);
       timer.gameObject.SetActive(false);
       sheepCounter.gameObject.SetActive(false);
 
@@ -28,12 +31,9 @@ public class UIManager : MonoBehaviour {
       UIEvents.GameWon += Win;
       UIEvents.GameLost += Lose;
       UIEvents.GameStarted += GameStart;
+      UIEvents.TimeLost += TimedOut;
     }
 
-
-    void Update() {
-        UpdateSheepCount();
-    }
 
     private void UpdateSheepCount() {
       sheepCounter.text = "Sheep Collected: " + sheep.ToString();
@@ -50,6 +50,8 @@ public class UIManager : MonoBehaviour {
       if (obj.tag == "Sheep") {
         sheep += 1;
       }
+
+        UpdateSheepCount();
     }
 
 
@@ -80,6 +82,13 @@ public class UIManager : MonoBehaviour {
     }
 
 
+    private void TimedOut() {
+      Time.timeScale = 0;
+      loseUI.SetActive(true);
+      loseText.text = "Unfortunately the sheep didn't get corralled in time and the coyotes feasted tonight.";
+    }
+
+
     void OnDestroy() {
       SheepEvents.SheepCollected -= IncreaseSheepCount;
       SheepEvents.SheepEscaped -= DecreaseSheepCount;
@@ -87,5 +96,6 @@ public class UIManager : MonoBehaviour {
       UIEvents.GameWon -= Win;
       UIEvents.GameLost -= Lose;
       UIEvents.GameStarted -= GameStart;
+      UIEvents.TimeLost -= TimedOut;
     }
 }

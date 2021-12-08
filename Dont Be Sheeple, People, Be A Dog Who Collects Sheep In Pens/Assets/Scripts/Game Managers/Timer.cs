@@ -8,7 +8,6 @@ public class Timer : MonoBehaviour {
 
 
     void Start () {
-      floatTimer = 120f;
       intTimer = Mathf.RoundToInt(floatTimer);
     }
 
@@ -18,6 +17,10 @@ public class Timer : MonoBehaviour {
       intTimer = Mathf.RoundToInt(floatTimer);
 
       UIEvents.UpdateTimer(intTimer.ToString());
+
+      if (floatTimer <= 0) {
+        UIEvents.LoseTime();
+      }
     }
 
 

@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sheepCounter: {fileID: 233230407}
   timer: {fileID: 255159462}
+  loseText: {fileID: 1969352635}
   winUI: {fileID: 1011132772}
   loseUI: {fileID: 1101123253}
   mainMenu: {fileID: 800012609}
@@ -1606,7 +1607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f50c7b42d224ccbb00f783cadb856d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatTimer: 0
+  floatTimer: 10
 --- !u!1001 &1529487189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1993,6 +1994,17 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1969352635 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2142931669449252158, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
+  m_PrefabInstance: {fileID: 2142931668517349166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2076368480 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e4a8b5097c0b47079850bf5e6e6a295, type: 3}
@@ -2094,6 +2106,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 449256940}
+    - target: {fileID: 2142931668043681354, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2142931668218584222, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
       propertyPath: m_Name
       value: UiStuff
@@ -2146,6 +2162,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 449256940}
+    - target: {fileID: 2142931669449252129, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 585.2113
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142931669449252129, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 239.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142931669449252129, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0013
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142931669449252129, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 59.227
+      objectReference: {fileID: 0}
     - target: {fileID: 2142931669544940255, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2153,6 +2185,10 @@ PrefabInstance:
     - target: {fileID: 2142931669563779483, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
       propertyPath: m_Name
       value: SheepDieUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142931669563779483, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2142931669585082957, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2169,6 +2205,10 @@ PrefabInstance:
     - target: {fileID: 2216401497275269844, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8583197600311437627, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb24a2f2b500f4545bb4685d4d845a34, type: 3}
