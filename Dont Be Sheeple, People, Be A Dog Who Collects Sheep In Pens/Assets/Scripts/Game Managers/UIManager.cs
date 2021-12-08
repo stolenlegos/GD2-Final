@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour {
     void Start() {
       Time.timeScale = 0;
       sheep = 0;
-      
+
       winUI.SetActive(false);
       loseUI.SetActive(false);
       timer.gameObject.SetActive(false);
@@ -77,5 +77,15 @@ public class UIManager : MonoBehaviour {
       mainMenu.SetActive(false);
       timer.gameObject.SetActive(true);
       sheepCounter.gameObject.SetActive(true);
+    }
+
+
+    void OnDestroy() {
+      SheepEvents.SheepCollected -= IncreaseSheepCount;
+      SheepEvents.SheepEscaped -= DecreaseSheepCount;
+      UIEvents.TimerUpdated -= UpdateTimerCount;
+      UIEvents.GameWon -= Win;
+      UIEvents.GameLost -= Lose;
+      UIEvents.GameStarted -= GameStart;
     }
 }

@@ -34,4 +34,9 @@ public class CheckFailState : MonoBehaviour {
     private void ResetDeaths () {
       sheepDied = 0;
     }
+
+
+    void OnDestroy() {
+      SheepEvents.SheepDied -= UpdateSheepDied;
+    }
 }
