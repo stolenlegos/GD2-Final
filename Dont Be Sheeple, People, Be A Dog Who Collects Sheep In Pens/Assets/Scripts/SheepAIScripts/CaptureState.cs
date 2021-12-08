@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CaptureState : State
 {
+    [SerializeField]
     public WanderState wanderState;
+    [SerializeField]
     public bool escaped;
 
     public override State RunCurrentState()
