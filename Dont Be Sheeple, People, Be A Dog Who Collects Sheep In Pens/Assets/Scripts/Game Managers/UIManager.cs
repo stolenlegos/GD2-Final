@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour {
       UIEvents.GameLost += Lose;
       UIEvents.GameStarted += GameStart;
       UIEvents.TimeLost += TimedOut;
+      UIEvents.PlayerDead += DogDied;
     }
 
 
@@ -94,6 +95,13 @@ public class UIManager : MonoBehaviour {
     }
 
 
+    private void DogDied() {
+      Time.timeScale = 0;
+      loseUI.SetActive(true);
+      loseText.text = "Fry lost his footing and tumbled away.";
+    }
+
+
     private void GetGoal(int num) {
       sheepGoal = num;
       Debug.Log("Goal was Recieved");
@@ -110,5 +118,6 @@ public class UIManager : MonoBehaviour {
       UIEvents.GameLost -= Lose;
       UIEvents.GameStarted -= GameStart;
       UIEvents.TimeLost -= TimedOut;
+      UIEvents.PlayerDead -= DogDied;
     }
 }
