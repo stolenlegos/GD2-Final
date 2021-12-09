@@ -15,7 +15,7 @@ public class WanderState : State
     //private Vector3 currentDestination;
 
     private float wanderRadius = 25;
-    private float wanderTimer = 5;
+    private float wanderTimer = 3;
 
     private Transform target;
     private float timer;

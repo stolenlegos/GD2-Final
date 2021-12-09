@@ -36,6 +36,7 @@ public class ChasedState : State
         }
         else if (escaped)
         {
+            Debug.Log("ESCAPED");
             escaped = false;
             return wanderState;
         }

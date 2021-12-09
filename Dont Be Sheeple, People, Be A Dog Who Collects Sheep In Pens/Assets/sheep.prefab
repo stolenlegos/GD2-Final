@@ -726,6 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5273965399168475750}
   - component: {fileID: 2925348083734246149}
+  - component: {fileID: 8909804177161577723}
   m_Layer: 0
   m_Name: ChasedState
   m_TagString: Untagged
@@ -763,6 +764,19 @@ MonoBehaviour:
   wanderState: {fileID: 3318855257762182417}
   captured: 0
   escaped: 0
+--- !u!135 &8909804177161577723
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305059909692203480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6448698112338916067
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2999385468219745253}
   - component: {fileID: 1742329241080075527}
+  - component: {fileID: 5870952689005856445}
   m_Layer: 0
   m_Name: CapturedState
   m_TagString: Untagged
@@ -946,6 +961,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderState: {fileID: 0}
   escaped: 0
+--- !u!135 &5870952689005856445
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618095586012113190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6630206305200852901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,8 +1150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseState: {fileID: 2925348083734246149}
   playerIsClose: 0
-  wanderRadius: 25
-  wanderTimer: 5
 --- !u!135 &8116500274142346423
 SphereCollider:
   m_ObjectHideFlags: 0
