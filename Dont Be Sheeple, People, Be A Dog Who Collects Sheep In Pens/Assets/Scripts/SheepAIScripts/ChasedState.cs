@@ -11,11 +11,15 @@ public class ChasedState : State
     private CaptureState captureState;
     [SerializeField]
     private WanderState wanderState;
+    [SerializeField]
+    private FallOffState fallOffState;
 
     [SerializeField]
-    private bool captured;
+    private bool capturedChS;
     [SerializeField]
-    private bool escaped;
+    private bool escapedChS;
+    [SerializeField]
+    private bool fallOff;
 
     //private float wanderRadius = 25;
     private float chaseTimer = 1;
@@ -30,15 +34,20 @@ public class ChasedState : State
 
     public override State RunCurrentState()
     {
-        if (captured)
+        if (fallOff)
         {
-            return captureState;
+            return fallOffState;
         }
-        else if (escaped)
+        else if (escapedChS)
         {
             Debug.Log("ESCAPED");
-            escaped = false;
+            escapedChS = false;
             return wanderState;
+        }
+        else if (capturedChS)
+        {
+            capturedChS = false;
+            return captureState;
         }
         else
         {
@@ -74,7 +83,22 @@ public class ChasedState : State
     {
         if(other.gameObject.tag == "Player")
         {
-            escaped = true;
+            escapedChS = true;
+        }
+        if (other.gameObject.tag == "Boundary")
+        {
+            fallOff = true;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            escapedChS = true;
+        }
+        if (other.gameObject.tag == "Fence")
+        {
+            capturedChS = true;
         }
     }
 }

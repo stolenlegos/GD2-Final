@@ -10,7 +10,11 @@ public class WanderState : State
     [SerializeField]
     private ChasedState chaseState;
     [SerializeField]
+    public CaptureState captureState;
+    [SerializeField]
     private bool playerIsClose;
+    [SerializeField]
+    private bool selfCapture;
 
     //private Vector3 currentDestination;
 
@@ -34,6 +38,10 @@ public class WanderState : State
         {
             Debug.Log("Begin Chased");
             return chaseState;
+        }
+        else if (selfCapture)
+        {
+            return captureState;
         }
         else
         {
@@ -111,12 +119,20 @@ public class WanderState : State
         {
             playerIsClose = true;
         }
+        if (other.gameObject.tag == "Fence")
+        {
+            selfCapture = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             playerIsClose = false;
+        }
+        if (other.gameObject.tag == "Fence")
+        {
+            selfCapture = false;
         }
     }
 }

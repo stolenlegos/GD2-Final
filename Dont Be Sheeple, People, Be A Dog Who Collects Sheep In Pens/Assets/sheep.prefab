@@ -216,6 +216,49 @@ Transform:
   m_Father: {fileID: 76745697840798689}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1433712482557984557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1976786257597575791}
+  - component: {fileID: 238878743053876942}
+  m_Layer: 0
+  m_Name: FallOffState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1976786257597575791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433712482557984557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8945249334549842412}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &238878743053876942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433712482557984557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2cbb0b72e997543895e0ce5acce02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2574942569533629843
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,9 +426,10 @@ GameObject:
   - component: {fileID: 4320863184855151172}
   - component: {fileID: 1238044797012290875}
   - component: {fileID: 8012973571158913243}
+  - component: {fileID: 6172500378093611193}
   m_Layer: 0
   m_Name: sheep
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,6 +515,25 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &6172500378093611193
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3978829105417959494}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fea342ed2e487e04f863310136fc915b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4172145433162011539
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,8 +825,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   captureState: {fileID: 1742329241080075527}
   wanderState: {fileID: 3318855257762182417}
-  captured: 0
-  escaped: 0
+  fallOffState: {fileID: 238878743053876942}
+  capturedChS: 0
+  escapedChS: 0
+  fallOff: 0
 --- !u!135 &8909804177161577723
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -959,8 +1024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3e07f5b5c55634d979550d40897e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderState: {fileID: 0}
-  escaped: 0
+  wanderState: {fileID: 3318855257762182417}
+  escapedWS: 0
 --- !u!135 &5870952689005856445
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1004,6 +1069,7 @@ Transform:
   - {fileID: 8163530185881976038}
   - {fileID: 5273965399168475750}
   - {fileID: 2999385468219745253}
+  - {fileID: 1976786257597575791}
   m_Father: {fileID: 4358485331131785980}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1062,7 +1128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7458535264745574449}
   m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 1.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8682372686661624095}
@@ -1149,7 +1215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseState: {fileID: 2925348083734246149}
+  captureState: {fileID: 1742329241080075527}
   playerIsClose: 0
+  selfCapture: 0
 --- !u!135 &8116500274142346423
 SphereCollider:
   m_ObjectHideFlags: 0
