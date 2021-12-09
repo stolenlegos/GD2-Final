@@ -72,7 +72,7 @@ public static class TerrainMeshGenerator
 
         return meshData;
     }
-    /*public static MeshData GenerateTerrainColliderMesh(float[,] heightMap, float heightMultipler, AnimationCurve _heightCurve, int levelOfDetail)
+    public static MeshData GenerateTerrainColliderMesh(float[,] heightMap, float heightMultipler, AnimationCurve _heightCurve, int levelOfDetail, bool useFlatShading)
     {
         AnimationCurve heightCurve = new AnimationCurve(_heightCurve.keys);
 
@@ -87,7 +87,7 @@ public static class TerrainMeshGenerator
 
         int verticesPerLine = (meshSize - 1) / meshSimplificationIncrement + 1;
 
-        MeshData meshColliderData = new MeshData(meshSize - 1 / meshSimplificationIncrement);
+        MeshData meshColliderData = new MeshData(meshSize - 1 / meshSimplificationIncrement, useFlatShading);
 
         int[,] vertexIndicesMap = new int[borderedSize, borderedSize];
         int meshVertexIndex = 0;
@@ -137,7 +137,7 @@ public static class TerrainMeshGenerator
         }
 
         return meshColliderData;
-    }*/
+    }
 }
 
 public class MeshData

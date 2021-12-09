@@ -787,13 +787,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6448698112338916067}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4358485331131785980}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!137 &8997491942535886609
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -1033,7 +1033,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7458535264745574449}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1045,7 +1045,7 @@ Transform:
   - {fileID: 5450487879789744098}
   m_Father: {fileID: 4358485331131785980}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!1 &7583083889381305544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,8 +1122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseState: {fileID: 2925348083734246149}
   playerIsClose: 0
-  moveSpeed: 1
-  rotSpeed: 50
+  wanderRadius: 25
+  wanderTimer: 5
 --- !u!135 &8116500274142346423
 SphereCollider:
   m_ObjectHideFlags: 0

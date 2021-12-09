@@ -82,7 +82,7 @@ public class MapGeneratorScript : MonoBehaviour
         else if (drawMode == DrawMode.Mesh)
         {
             display.DrawMesh(TerrainMeshGenerator.GenerateTerrainMesh(mapData.heightMap, meshHeightMultipler, meshHeigthCurve, editorPreviewLOD, useFlatShading), TextureGenerator.TextureFromColorMap(mapData.colorMap, mapChunkSize, mapChunkSize));
-            //display.DrawMesh(TerrainMeshGenerator.GenerateTerrainColliderMesh(mapData.heightMap, meshHeightMultipler, meshHeigthCurve, editorPreviewLOD), TextureGenerator.TextureFromColorMap(mapData.colorMap, mapChunkSize, mapChunkSize));
+            //display.DrawMesh(TerrainMeshGenerator.GenerateTerrainColliderMesh(mapData.heightMap, meshHeightMultipler, meshHeigthCurve, editorPreviewLOD, useFlatShading), TextureGenerator.TextureFromColorMap(mapData.colorMap, mapChunkSize, mapChunkSize));
         }
         else if (drawMode == DrawMode.FallOffMap)
         {
