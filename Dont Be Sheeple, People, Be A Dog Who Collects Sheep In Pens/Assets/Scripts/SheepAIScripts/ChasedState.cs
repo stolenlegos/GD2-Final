@@ -22,7 +22,7 @@ public class ChasedState : State
     private bool fallOff;
 
     //private float wanderRadius = 25;
-    private float chaseTimer = 1;
+    private float chaseTimer = .1f;
     private Transform target;
     private float timer;
 
