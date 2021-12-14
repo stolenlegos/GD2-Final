@@ -90,7 +90,7 @@ public class ChasedState : State
 
         if (other.tag == "Boundary") {
           fallOff = true;
-          Debug.Log("OutOFBounds");
+        //  Debug.Log("OutOFBounds");
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -107,7 +107,7 @@ public class ChasedState : State
 
         if (other.tag == "Boundary") {
           fallOff = false;
-          Debug.Log("Inbounds");
+        //  Debug.Log("Inbounds");
         }
     }
 }
