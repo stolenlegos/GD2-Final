@@ -32,7 +32,7 @@ public class SheepEvents {
   public static void KillSheep(GameObject obj) {
     if (SheepDied != null) {
       SheepDied(obj);
-      Debug.Log(sheepDied);
+      Debug.Log("sheepDied");
     }
   }
 
