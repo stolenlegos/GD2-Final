@@ -30,6 +30,7 @@ public class ChasedState : State
     {
         navMeshAgent = gameObject.GetComponentInParent<NavMeshAgent>();
         timer = chaseTimer;
+        fallOff = false;
     }
 
     public override State RunCurrentState()
@@ -86,9 +87,10 @@ public class ChasedState : State
         {
             escapedChS = true;
         }
-        if (other.gameObject.tag == "Boundary")
-        {
-            fallOff = true;
+
+        if (other.tag == "Boundary") {
+          fallOff = true;
+          Debug.Log("OutOFBounds");
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -97,9 +99,15 @@ public class ChasedState : State
         {
             escapedChS = true;
         }
+
         if (other.gameObject.tag == "Fence")
         {
             capturedChS = true;
+        }
+
+        if (other.tag == "Boundary") {
+          fallOff = false;
+          Debug.Log("Inbounds");
         }
     }
 }
