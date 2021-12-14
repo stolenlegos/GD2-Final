@@ -40,7 +40,7 @@ public class ChasedState : State
         }
         else if (escapedChS)
         {
-            Debug.Log("ESCAPED");
+            //Debug.Log("ESCAPED");
             escapedChS = false;
             return wanderState;
         }
@@ -51,13 +51,14 @@ public class ChasedState : State
         }
         else
         {
-            Debug.Log("Chasing");
+            //Debug.Log("Chasing");
             timer += Time.deltaTime;
             target = GameObject.FindGameObjectWithTag("Player").transform;
 
             if (timer >= chaseTimer)
             {
-                Vector3 newPos = (transform.position - target.transform.position);
+                Vector3 dirToPlayer = (transform.position - target.transform.position);
+                Vector3 newPos = transform.position + dirToPlayer;
                 navMeshAgent.SetDestination(newPos);
                 timer = 0;
             }

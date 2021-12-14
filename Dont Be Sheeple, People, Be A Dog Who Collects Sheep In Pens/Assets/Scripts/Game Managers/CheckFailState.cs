@@ -45,7 +45,7 @@ public class CheckFailState : MonoBehaviour {
 
     private void SetGoal(int num) {
       maxSheepDied = _sheepInLevel.Count - num;
-      Debug.Log("Max Sheep Can Die: " + maxSheepDied.ToString());
+      //Debug.Log("Max Sheep Can Die: " + maxSheepDied.ToString());
     }
 
 

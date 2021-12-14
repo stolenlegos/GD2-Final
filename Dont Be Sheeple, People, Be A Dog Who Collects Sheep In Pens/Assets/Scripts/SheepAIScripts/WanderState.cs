@@ -36,7 +36,7 @@ public class WanderState : State
     {
         if (playerIsClose)
         {
-            Debug.Log("Begin Chased");
+            //Debug.Log("Begin Chased");
             return chaseState;
         }
         else if (selfCapture)
@@ -45,7 +45,7 @@ public class WanderState : State
         }
         else
         {
-            Debug.Log("Fuck");
+          //  Debug.Log("Fuck");
             //StartCoroutine("Wander");
 
             timer += Time.deltaTime;
@@ -85,7 +85,7 @@ public class WanderState : State
                 Debug.Log("New Destination fucked");
                 float left = Random.Range(328f, 337f);
                 float right = Random.Range(390f, 399f);
-                currentDestination.x = Random.Range(left, right);            
+                currentDestination.x = Random.Range(left, right);
             }
             if (navMeshAgent.destination.y >= 520f && navMeshAgent.destination.x <= 533f)
             {

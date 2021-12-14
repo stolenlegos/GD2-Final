@@ -12,7 +12,7 @@ public class CaptureState : State
     [SerializeField]
     private bool escapedWS;
 
-    private float captureRadius = 5;
+    private float captureRadius = 1;
     private float captureTimer = 2;
 
     private float timer;

@@ -104,7 +104,7 @@ public class UIManager : MonoBehaviour {
 
     private void GetGoal(int num) {
       sheepGoal = num;
-      Debug.Log("Goal was Recieved");
+      //Debug.Log("Goal was Recieved");
       UpdateSheepCount();
     }
 
